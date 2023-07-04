@@ -1,0 +1,146 @@
+
+
+<!doctype html>
+
+{% load static%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+   {% load static %}<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carosel.min.css'%}">
+   {% load static %}<link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css'%}">
+   {% load static %}<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'about' %}">
+       <div>   <img src="{% static 'images\3.jpg' %}" /> </div>
+       <div> <h3> S-MART </h3></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">DEAL OF THE DAY</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  ACCOUNT
+              </a>
+              <ul class="dropdown-menu">
+                  
+                  <li><a class="dropdown-item" href="{% url 'showcart' %}">ORDER</a></li>
+                  
+                  <li><a class="dropdown-item" href="#">CHANGE PASSWORD</a></li>
+                  
+                  
+                  
+                  <li>
+                      <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="{% url 'login' %}">LOGIN</a></li>
+                  <li><a class="dropdown-item" href="#">LOGOUT</a></li>
+              </ul>
+          </li>
+
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            CATEGORY
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">MEN</a></li>
+            <li><a class="dropdown-item" href="#">WOMEN</a></li>
+            <li><a class="dropdown-item" href="#">KID</a></li>
+            
+           
+        </ul>
+    </li>
+
+
+          
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+
+          <li class="nav-item mx-2 ">
+            <a class="nav-link " href="{% url 'showcart' %}">CART 4</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link " href="{% url 'showcart' %}">WISHLIST 4</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link " href="{% url 'signup' %}">SIGN UP</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+
+ <div class="container my-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+      {% for val in title %}
+      <a href="{% url 'categorytitle' val.title %}" class="list-group-item list-group-item-action" aria-current="true">
+       {{val.title}} </a>
+     {% endfor%}
+      </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+         {% for prod in product %}
+         <div class="col text-center mb-4">
+            <a href="{% url 'productdetail' prod.id %}" class="btn">
+            </div>
+            <img src="{{prod.product_image.url}}" width="300px" height="200px" />
+            <div class="fw-bold">{{prod.title}}</div>
+            <div class="fw-bold text-danger">
+                Rs.{{prod.discounted_price}}/-
+                <small class="fw-light text-decoration-line-through">{{prod.selling_price}}</small>
+            </div>
+        </div>
+    </a>
+</div>
+         {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <footer class="container-fluid bg-dark text-center  text-white fixed-bottom p-2 mt-5">
+        copyright: 2023 || Developed By SUDEEP
+      </footer>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    
+    <script script="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script script="{% static 'js/all.min.js' %}"></script>
+    <script script="{% static 'js/myscript.js' %}"></script>
+  </body>
+</html>
+

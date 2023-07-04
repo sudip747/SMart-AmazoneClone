@@ -1,0 +1,208 @@
+
+<!doctype html>
+
+{% load static%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMART</title>
+   {% load static %}<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carosel.min.css'%}">
+   {% load static %}<link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css'%}">
+   {% load static %}<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'about' %}">
+       <div>   <img src="{% static 'images\3.jpg' %}" />  </div>
+       <div> <h3> S-MART </h3></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">DEAL OF THE DAY</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  ACCOUNT
+              </a>
+              <ul class="dropdown-menu">
+                  
+                  <li><a class="dropdown-item" href="#">ORDER</a></li>
+                  
+                  <li><a class="dropdown-item" href="#">CHANGE PASSWORD</a></li>
+                  
+                  <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                  
+                  <li>
+                      <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="{% url 'login' %}">LOGIN</a></li>
+                  <li><a class="dropdown-item" href="#">LOGOUT</a></li>
+              </ul>
+          </li>
+
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            CATEGORY
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'category' 'ME' %}">MEN</a></li>
+            <li><a class="dropdown-item" href="{% url 'category' 'WO' %}">WOMEN</a></li>
+            <li><a class="dropdown-item" href="{% url 'category' 'KI' %}">KID</a></li>
+            
+           
+        </ul>
+    </li>
+
+
+          
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+
+          <li class="nav-item mx-2 ">
+            <a class="nav-link " href="{% url 'showcart' %}">CART 4</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link " href="{% url 'showcart' %}">WISHLIST 4</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link " href="{% url 'signup' %}">SIGN UP</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> HAPPY SHOPPING <span class="text-capitalize">
+        {{request.user}}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+
+
+
+
+
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner my-2">
+        <div class="carousel-item active" data-bs-interval="2000">
+          <img src="{% static 'images\photo-1467779009031-53938b78ca38.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="{% static 'images\photo-1558769132-cb1aea458c5e.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="1000">
+          <img src="{% static 'images\photo-1514090458221-65bb69cf63e6.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <div class="container">
+      <div class="row bg-dark text-center p-5 text-white border-bottom shadow">
+        <h1>FASHIONISTA</h1>
+        <small class="fs-5">Style is a way to say who you are without having to speak.</br>
+          Whoever said that money can't buy happiness didn't know where to go shopping.</small>
+
+
+
+
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card h-100">
+              <a href="{% url 'category' 'WO' %}" > <img src="{% static 'images\photo-1586388926625-2e64d1907321.jpg' %}"  class="card-img-top" alt="..."> </a>
+                <div class="card-body">
+                  <h5 class="card-title">WOMEN</h5>
+                  <p class="card-text"> Life is too short to wear boring clothes.<br>
+                 <b> Forget the rules if you like it wear it.</b></p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+              <a href="{% url 'category' 'KI' %}" > <img src="{% static 'images\2.jpg' %}"  class="card-img-top" alt="..."> </a>
+                <div class="card-body">
+                  <h5 class="card-title">KIDS</h5>
+                  <p class="card-text ">I find happiness in rainbows. Colours are the smile of nature<br>
+                  <b> All your kid need is little splash of colours .</b></p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+               <a href="{% url 'category' 'ME' %}"> <img src="{% static 'images\photo-1513956589380-bad6acb9b9d4.jpg' %}"  class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                  <h5 class="card-title">MENS</h5>
+                  <p class="card-text"> Being a gentleman never goes out of fasion<br>
+                 <b>"People will stare make their worth while"</b> </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <footer class="container-fluid bg-dark text-center  text-white fixed-bottom p-2 mt-5">
+        copyright: 2023 || Developed By SUDEEP
+      </footer>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    
+    <script script="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script script="{% static 'js/all.min.js' %}"></script>
+    <script script="{% static 'js/myscript.js' %}"></script>
+  </body>
+</html>
